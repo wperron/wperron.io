@@ -1,12 +1,34 @@
 <script>
 	import Title from './components/Title.svelte'
 	import Card from './components/Card.svelte'
+	import Social from './components/Social.svelte'
+	import TableOfContent from './components/TableOfContent.svelte'
+
+	let links = [
+		{
+			name: "GitHub",
+			href: "https://github.com/wperron",
+		}
+	]
+
+	let pages = [
+		{
+			name: "Reading List",
+			href: "#"
+		}
+	]
 </script>
 
 <main>
 	<Title title='wperron' src='../public/favicon.png' desc="that's me!" />
-	<p>Software Developer, Devops Advocate and Cloud Computing Enthusiast.</p>
+
 	<hr />
+
+	<Social links={links} />
+
+	<hr />
+
+	<TableOfContent pages={pages} />
 </main>
 
 <style>
