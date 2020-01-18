@@ -1,0 +1,47 @@
+name: "Deploy Static Site"
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    name: "Svelte Compile"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: "Setup Node"
+        uses: actions/setup-node@v1
+        with:
+          node-version: 13.x
+      - name: "Build JS"
+        run: |
+          npm install
+          npm run build
+      - name: "Build HTML Content"
+        run: |
+          ./md-to-html
+  deploy:
+    name: "Deploy to CloudFront"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: "Configure AWS Credentials"
+        uses: aws-actions/configure-aws-credentials@v1
+          with:
+            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws-region: us-east-1
+      - name: "Setup Python"
+        uses: action/setup-python@v1
+        with:
+          python-version: 3.x
+          architecture: x64
+      - name: "Deploy to S3 & CloudFront"
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: us-east-1
+        run: |
+          pip install awscli
+          aws s3 sync ./public s3://wperron
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION }} --paths '/*'

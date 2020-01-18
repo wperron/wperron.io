@@ -8,7 +8,11 @@
 		{
 			name: "GitHub",
 			href: "https://github.com/wperron",
-		}
+		},
+		{
+			name: "Twitter",
+			href: "https://twitter.com/_wperron",
+		},
 	]
 
 	let pages = [
@@ -20,7 +24,7 @@
 </script>
 
 <main>
-	<Title title='wperron' src='../public/favicon.png' desc="that's me!" />
+	<Title title='wperron' src='profile-small.jpg' desc="that's me!" />
 
 	<hr />
 
