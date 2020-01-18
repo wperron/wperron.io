@@ -23,6 +23,7 @@ jobs:
   deploy:
     name: "Deploy to CloudFront"
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - uses: actions/checkout@master
       - name: "Configure AWS Credentials"
