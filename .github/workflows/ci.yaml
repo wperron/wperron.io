@@ -33,7 +33,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       - name: "Setup Python"
-        uses: action/setup-python@v1
+        uses: actions/setup-python@v1
         with:
           python-version: 3.x
           architecture: x64
