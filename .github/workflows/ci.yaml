@@ -19,7 +19,7 @@ jobs:
           npm run build
       - name: "Build HTML Content"
         run: |
-          ./md-to-html
+          ./md-to-html.sh
   deploy:
     name: "Deploy to CloudFront"
     runs-on: ubuntu-latest
