@@ -3,6 +3,10 @@ if ! hash showdown 2>/dev/null; then
   npm install -g showdown
 fi
 
+if ! -d ./public/pages; then
+  mkdir -p ./public/pages
+fi
+
 for f in $(find ./src/content -name "*.md"); do
   echo "parsing: $f"
   filename=$(basename $f)
