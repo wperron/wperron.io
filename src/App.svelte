@@ -1,8 +1,7 @@
 <script>
 	import Title from './components/Title.svelte'
-	import Card from './components/Card.svelte'
 	import Social from './components/Social.svelte'
-	import TableOfContent from './components/TableOfContent.svelte'
+	import ContentList from './components/ContentList.svelte'
 
 	let links = [
 		{
@@ -17,22 +16,19 @@
 
 	let pages = [
 		{
-			name: "Reading List",
-			href: "#"
-		}
+			title: "Reading List",
+			desc: 'My Personal Reading List',
+			href: "#",
+		},
 	]
 </script>
 
 <main>
 	<Title title='wperron' src='profile-small.jpg' desc="that's me!" />
-
 	<hr />
-
 	<Social links={links} />
-
 	<hr />
-
-	<TableOfContent pages={pages} />
+	<ContentList pages={pages} />
 </main>
 
 <style>

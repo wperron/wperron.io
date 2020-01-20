@@ -21,7 +21,7 @@
 	}
 
 	.title h1 {
-		color: #ff3e00;
+		color: #9575cd;
 		font-size: 3em;
 		font-weight: 100;
 	}

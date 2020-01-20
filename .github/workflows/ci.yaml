@@ -17,9 +17,6 @@ jobs:
         run: |
           npm install
           npm run build
-      - name: "Build HTML Content"
-        run: |
-          ./md-to-html.sh
       - name: "Configure AWS Credentials"
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -37,6 +34,5 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: us-east-1
         run: |
-          pip install awscli
+          pip install -q awscli
           aws s3 sync ./public s3://wperron
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION }} --paths '/*'
