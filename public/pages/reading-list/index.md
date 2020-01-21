@@ -1,4 +1,8 @@
-# My Reading List
+---
+title: My Reading List
+date: 2020-01-21T00:01:17.158Z
+description: A collection of blog posts, books, articles and talks that have inspired me. 
+---
 
 There is so much information and content being generated on the web nowadays,
 and so many interesting books, talks and papers being published that it's
