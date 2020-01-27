@@ -6,13 +6,16 @@
 
 <section class='title'>
 	<img src={src} alt={desc} width="100px" />
-	<h1>{title}</h1>
-	<p>Software Developer, DevOps Advocate and Cloud Computing Enthusiast.</p>
+	<div>
+		<h1>{title}</h1>
+		<p>Software Developer, DevOps Advocate and Cloud Computing Enthusiast.</p>
+	</div>
 </section>
 
 <style>
 	.title {
 		display: block;
+		margin: 30px 0;
 	}
 
 	.title img {
@@ -21,8 +24,8 @@
 	}
 
 	.title h1 {
-		color: #9575cd;
 		font-size: 3em;
-		font-weight: 100;
+		font-weight: 600;
+		margin: 0;
 	}
 </style>
