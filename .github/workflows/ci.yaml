@@ -51,5 +51,6 @@ jobs:
       - name: "Parse Markdown"
         run: |
           pip install -q awscli
+          npm install
           node md-parser.js > posts.js
           aws s3 cp posts.json s3://wperron/
