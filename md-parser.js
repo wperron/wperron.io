@@ -11,13 +11,13 @@ const settings = {
 }
 
 async function main() {
-  const files = await areaddir('./content', {}).then(files => {
+  const files = await areaddir('./pages', {}).then(files => {
     return files.filter(f => f.match(/\.md$/g))
   })
 
   let posts = []
   for await (const file of files) {
-    const content = await aReadFile(`./content/${file}`, 'utf8').then(async data => {
+    const content = await aReadFile(`./pages/${file}`, 'utf8').then(async data => {
       return data
     })
 
