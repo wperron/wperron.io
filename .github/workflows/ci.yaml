@@ -28,7 +28,7 @@ jobs:
         with:
           python-version: 3.x
           architecture: x64
-      - name: "Deploy to S3 & CloudFront"
+      - name: "Deploy to S3"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -36,3 +36,20 @@ jobs:
         run: |
           pip install -q awscli
           aws s3 sync ./public s3://wperron
+  parse-md:
+    name: "Parse and Publish Mardown Posts"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 13.x
+      - uses: actions/setup-python@v1
+        with:
+          python-version: 3.x
+          architecture: x64
+      - name: "Parse Markdown"
+        run: |
+          pip install -q awscli
+          node md-parser.js > posts.js
+          aws s3 cp posts.json s3://wperron/
