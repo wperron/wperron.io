@@ -14,13 +14,12 @@
 		},
 	]
 
-	let pages = [
-		{
-			title: "Reading List",
-			desc: 'My Personal Reading List',
-			href: "#",
-		},
-	]
+	let promise = fetchPosts()
+
+	async function fetchPosts() {
+		return await fetch('/posts.json')
+			.then(res => res.json())
+	}
 </script>
 
 <main>
@@ -28,7 +27,13 @@
 	<hr />
 	<Social links={links} />
 	<hr />
-	<ContentList pages={pages} />
+	{#await promise}
+		<p>waiting...</p>
+	{:then posts}
+		<ContentList posts={posts} />
+	{:catch err}
+		<p>Oops, something went wrong... 😬</p>
+	{/await}
 </main>
 
 <style>

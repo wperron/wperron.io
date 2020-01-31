@@ -1,10 +1,11 @@
 <script>
-	export let page
+	export let post
 </script>
 
 <div class='content-item'>
-	<a href={page.href} class='content-title'>{page.title}</a>
-	<p class='content-text'>{page.desc}</p>
+	<a href='#' class='content-title'>{post.attributes.title}</a>
+	<p class='content-text'>{post.attributes.date}</p>
+	<p class='content-text'>{post.attributes.description}</p>
 </div>
 
 <style>
@@ -14,7 +15,7 @@
 
 	.content-title {
 		margin: 10;
-		font-size: 2rem;
+		font-size: 1.5rem;
 	}
 
 	.content-text {

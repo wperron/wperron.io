@@ -1,11 +1,11 @@
 <script>
 	import Item from './ContentItem.svelte'
 
-	export let pages
+	export let posts
 </script>
 
 <div class='content-list'>
-	{#each pages as page}
-		<Item page={page} />
+	{#each posts as post}
+		<Item post={post} />
 	{/each}
 </div>
