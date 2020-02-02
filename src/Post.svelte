@@ -1,10 +1,12 @@
 <script>
+	import Date from './components/Date.svelte'
+
 	export let post
 </script>
 
 <div class='blog-post'>
 	<h1>{post.attributes.title}</h1>
-	<i>{post.attributes.date}</i>
+	<Date date={post.attributes.date} />
 	<p>{post.attributes.description}</p>
 	<hr />
 	<div class='blog-post-body'>

@@ -2,6 +2,7 @@
 	import { Router, Link, Route } from "svelte-routing"
 	import Title from './components/Title.svelte'
 	import Social from './components/Social.svelte'
+	import Date from './components/Date.svelte'
 	import Post from './Post.svelte'
 
 	let links = [
@@ -49,7 +50,7 @@
 						<Link to={`/blog/${post.attributes.slug}`}>
 							<span class='content-title'>{post.attributes.title}</span>
 						</Link>
-						<p class='content-text'>{post.attributes.date}</p>
+						<Date date={post.attributes.date} />
 						<p class='content-text'>{post.attributes.description}</p>
 					</div>
 				{/each}
