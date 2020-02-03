@@ -42,7 +42,7 @@
 		}
 
 		.title img {
-			margin: auto;
+			margin-right: auto;
 			display: block;
 			max-width:230px;
 			max-height:95px;
