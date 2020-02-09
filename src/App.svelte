@@ -3,6 +3,7 @@
 	import { posts, links } from './stores.js'
 	import Title from './components/Title.svelte'
 	import Social from './components/Social.svelte'
+	import About from './components/About.svelte'
 	import Date from './components/Date.svelte'
 	import Post from './Post.svelte'
 </script>
@@ -13,6 +14,8 @@
 	<Router>
 		<Route path="/">
 			<Social links={links} />
+			<hr />
+			<About />
 			<hr />
 			{#each $posts as post}
 				<div class='content-item'>
