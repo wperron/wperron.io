@@ -3,7 +3,7 @@
 </script>
 
 <section class="social">
-	<h2>Where to find me</h2>
+	<h2>Where to Find Me</h2>
 	<ul>
 		{#each links as link}
 			<li>{link.name}: <a href={link.href} target="_blank">{link.href}</a></li>

@@ -1,4 +1,5 @@
 <div id='about'>
+	<h2>About Me</h2>
 	<p>Hi! I'm a software engineer currently living in Montréal, Canada 🍁.
 	I'm particularly interested in building highly-available, highly-distributed
 	systems and anything cloud-related. I'm a firm believer in the DevOps
