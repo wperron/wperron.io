@@ -15,17 +15,14 @@
 <style>
 	.title {
 		display: flex;
+		flex-flow: row nowrap;
 		margin: 30px 0;
 	}
 
 	.title img {
 		margin-right: 20px;
-		display: block;
-		max-width:230px;
-		max-height:95px;
-		min-width: 100px;
-		width: auto;
-		height: auto;
+		width: 140px;
+		height: 140px;
 	}
 
 	.title h1 {
