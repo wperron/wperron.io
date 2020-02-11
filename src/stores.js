@@ -19,4 +19,8 @@ export const links = [
 		name: "Twitter",
 		href: "https://twitter.com/_wperron",
 	},
+	{
+		name: "My Resume",
+		href: "https://wperron.io/resume-en.pdf",
+	},
 ]
