@@ -1,5 +1,5 @@
 ---
-title: "Deno may be the most important project since Node itself."
+title: "Deno may be the most important development in Javascript since Node itself."
 date: 2020-06-12T20:16:58-04:00
 draft: false
 ---
