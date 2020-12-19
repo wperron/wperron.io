@@ -1,5 +1,5 @@
 ---
-title: "The Myths of Dependency Management"
+title: "Myths of Dependency Management"
 date: 2020-12-12T16:50:44-04:00
 draft: true
 ---
@@ -8,9 +8,19 @@ Let's take about dependency management for a minute. For the past few weeks I've
 discussions in the Deno and Node.js communities and I have come to realize that we as an industry
 have some deeply ingrained assumptions about dependency management. Since this is one of (if not _the_)
 most contentious issue surrounding Deno and that it is even surfacing in Node.js around the
-discussions surrounding the [implementation of URL imports](https://github.com/nodejs/node/discussions/36430), I thought it would be a good idea to take a good look at those assumptions and see if they
+discussions surrounding the [implementation of URL imports](https://github.com/nodejs/node/discussions/36430),
+I thought it would be a good idea to take a good look at those assumptions and see if they
 hold up. While this post is targetted specifically at the JavaScript community, I hope some of it
 can also be applied to other ecosystems.
+
+<!-- TODO(wperron): keep the following? For context, I'm talking specifically about critics of Deno's URL imports feature. In Deno, instead
+of importing packages based on a short identifier like `fs` for example, you have to import it via
+its fully qualified URL, ex: `https://deno.land/std@0.80.0/fs/mod.ts`. This is usually perceived as
+"insecure" by its detractors. -->
+
+The first argument I hear is that centralized registries guarantees that packages will stay up and
+available. This means that a developer can bring in a new dependency during development and _know_
+that that dependency will be available during the build step and when deploying to production.
 
 "npm identifiers are just short aliases for a url anyway"
 
