@@ -9,7 +9,7 @@ copyright = "&copy; Copyright 2020, William Perron"
 
 [params]
   avatar = "/img/profile-small.jpg"
-  subtitle = "I build stuff that works."
+  subtitle = "Head in the clouds."
   [[params.social]]
     name = "GitHub"
     icon = "fab fa-github fa-1x"
