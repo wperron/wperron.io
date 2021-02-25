@@ -21,7 +21,7 @@ copyright = "&copy; Copyright 2020, William Perron"
   [[params.social]]
     name = "Resume"
     icon = "fas fa-file-pdf fa-1x"
-    url = "https://wperron.io/resume-en.pdf"
+    url = "https://docs.google.com/document/d/1GtzEib4RnZRZ6nxPbul-IMPhDMwaUvGyKXIPK8JWV7A/edit?usp=sharing"
 
 [[menu.main]]
   name = "About"
