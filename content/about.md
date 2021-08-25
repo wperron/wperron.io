@@ -6,13 +6,8 @@ draft: false
 
 Hi! I'm a software engineer currently living in Montréal, Canada 🍁.
 I'm particularly interested in building highly-available, highly-distributed
-systems and anything cloud-related. Right Now I'm working with Ubisoft on monitoring
-solutions and contributing to [Deno](https://deno.land/) in my spare time.
-During my (admitedly short) career, I've had to opportunity to lead multiple
-interesting projects, ranging from migrating from svn to Git, slowly rewriting
-legacy applications with more modern and resilient technology and infrastructure,
-and have been at the forefront of company-wide shift from waterfall to agile and
-DevOps methodologies.
+systems and anything cloud-related. Right Now I'm working with [Deno](https://deno.land/),
+focusing mostly on the [Deploy](https://deno.com/deploy) serverless platform.
 
 I also play guitar in my spare time and have two lovely cats (which I will
 most _definitely_ tell you all about if you ever meet me in person).
