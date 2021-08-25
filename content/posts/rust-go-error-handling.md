@@ -28,5 +28,5 @@ idea of "errors as value" to the Rust type system. Returning multiple values,
 including an error value, in Go is the natural point one must arrive to when
 applying the same concept to Go's compiler and type system.
 
-Any comparison or argument for or against either language's type system is
+Any comparison or argument for or against either language's error handling is
 actually just a comparison of their type system.
