@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 date: 2021-11-11T20:54:20.008Z
 title: Can the Go runtime behave like the JavaScript even loop?
 ---
