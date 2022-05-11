@@ -4,14 +4,15 @@ date: 2021-11-11T20:54:20.008Z
 title: Can the Go runtime behave like the JavaScript even loop?
 ---
 
-During a conversation on discord that started with Amos's great [Understanding
-Rust futures by going way too deep][1] article where we ended discussing how
-various different runties handled concurrent code execution, someone raised the
-question: Is it possible to have Go execute on a single operating system thread,
-similar to the JavaScript event loop? It hit that as much experience as I have
-with Go and how much I've read on the Go runtime, I have never actually tried
-that. So that's what I did! Enter an hour of my life that I'll never get back
-and I'm not entirely sure what I learned from, but that was fun nonetheless.
+During a conversation on discord that started with Amos's great
+[Understanding Rust futures by going way too deep][1] article where we ended
+discussing how various different runties handled concurrent code execution,
+someone raised the question: Is it possible to have Go execute on a single
+operating system thread, similar to the JavaScript event loop? It hit that as
+much experience as I have with Go and how much I've read on the Go runtime, I
+have never actually tried that. So that's what I did! Enter an hour of my life
+that I'll never get back and I'm not entirely sure what I learned from, but that
+was fun nonetheless.
 
 ## Down the blocking syscall rabbit hole
 
@@ -56,10 +57,10 @@ thing I see at the top is that nanosleep is in section 2 of the manual
 (`nanosleep(2)`) so we know it is indeed a system call, and we get the following
 description:
 
-> nanosleep()  suspends the execution of the calling thread until either at
-> least the time specified in req has elapsed, or the delivery of a signal that
-> triggers the invocation of a handler in the calling thread  or  that
-> terminates the process.
+> nanosleep() suspends the execution of the calling thread until either at least
+> the time specified in req has elapsed, or the delivery of a signal that
+> triggers the invocation of a handler in the calling thread or that terminates
+> the process.
 
 So it _is_ a blocking syscall, the quest continues!
 
@@ -320,12 +321,12 @@ strace: Process 43643 attached
 Whoa, that's a lot of output! Surely then, that's not our code that's doing
 that?
 
-A lot of these nanosleep look like `[pid 43633] nanosleep({tv_sec=0,
-tv_nsec=20000}, NULL) = 0` and we're sleeping for 1 seconds, 0 nanoseconds. I
-haven't explored these in much detail, I can only assume that they come from the
-magic of the Go runtime under the hood. So from now, I'll be adding the `-o
-strace.out` argument to strace to pipe the output to a file that I can then grep
-after the fact.
+A lot of these nanosleep look like
+`[pid 43633] nanosleep({tv_sec=0, tv_nsec=20000}, NULL) = 0` and we're sleeping
+for 1 seconds, 0 nanoseconds. I haven't explored these in much detail, I can
+only assume that they come from the magic of the Go runtime under the hood. So
+from now, I'll be adding the `-o strace.out` argument to strace to pipe the
+output to a file that I can then grep after the fact.
 
 ```bash
 $ strace -f -o strace.out -e nanosleep ./gst
@@ -583,8 +584,8 @@ this is indeed the expected behavior:
 > SetMaxThreads sets the maximum number of operating system threads that the Go
 > program can use. If it attempts to use more than this many, the program
 > crashes. SetMaxThreads returns the previous setting. The initial setting is
-> 10,000 threads. 
-> 
+> 10,000 threads.
+>
 > SetMaxThreads is useful mainly for limiting the damage done by programs that
 > create an unbounded number of threads. The idea is to take down the program
 > before it takes down the operating system.
@@ -602,14 +603,14 @@ do concurrent computation without the use of OS threads, which is something we
 already knew. What I did learn from that experiment though is that there's some
 interesting heuristics at play here to determine whether or not spawning a
 goroutine will spawn a new OS thread with it, so I didn't completely wasted that
-hour of my life! If you're curious, you can [check out the source code
-here][10].
+hour of my life! If you're curious, you can
+[check out the source code here][10].
 
-[1]: https://fasterthanli.me/articles/understanding-rust-futures-by-going-way-too-deep 
-[2]: https://stackoverflow.com/questions/39245660/number-of-threads-used-by-go-runtime 
+[1]: https://fasterthanli.me/articles/understanding-rust-futures-by-going-way-too-deep
+[2]: https://stackoverflow.com/questions/39245660/number-of-threads-used-by-go-runtime
 [3]: https://pkg.go.dev/runtime#GOMAXPROCS
 [4]: https://dave.cheney.net/2015/08/08/performance-without-the-event-loop
-[5]: https://pkg.go.dev/time#Sleep 
+[5]: https://pkg.go.dev/time#Sleep
 [6]: https://cs.opensource.google/go/go/+/refs/tags/go1.17.3:src/time/sleep.go;l=9
 [7]: https://pkg.go.dev/syscall#Nanosleep
 [8]: https://github.com/golang/go/issues/4056
