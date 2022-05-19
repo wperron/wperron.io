@@ -5,7 +5,7 @@ author = "William Perron"
 theme = "vitae"
 uglyURLs = true
 enableRobotsTXT = true
-copyright = "&copy; Copyright 2021, William Perron"
+copyright = "&copy; Copyright 2022, William Perron"
 
 [params]
   avatar = "/img/profile-small.jpg"
