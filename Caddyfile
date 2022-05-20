@@ -1,0 +1,10 @@
+http://localhost, http://wperron.io, http://wperron-io.fly.dev {
+  bind 0.0.0.0
+  root * /usr/share/caddy
+  file_server
+}
+
+:9091 {
+  bind 0.0.0.0
+  metrics /metrics
+}
