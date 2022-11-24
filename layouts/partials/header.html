@@ -22,7 +22,7 @@
           <ul>
             <li><iframe src="https://github.com/sponsors/wperron/button" title="Sponsor wperron" height="35" width="116" style="border: 0;"></iframe></li>
             {{- range $index, $key := .Site.Params.Social -}}
-            <li><a href="{{ $key.url }}"><i title="{{ $key.name }}" class="icons {{ $key.icon }}"></i></a></li>
+            <li><a href="{{ $key.url }}" {{- if isset $key "rel" -}}rel="{{ $key.rel }}"{{- end -}}><i title="{{ $key.name }}" class="icons {{ $key.icon }}"></i></a></li>
             {{- end -}}
           </ul>
         </nav>
@@ -38,4 +38,3 @@
         </nav>
       </div>
     </header>
-    
