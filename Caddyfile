@@ -2,6 +2,15 @@ http://localhost, http://wperron.io, http://wperron-io.fly.dev {
   bind 0.0.0.0
   root * /usr/share/caddy
   file_server
+
+  log {
+    output stdout
+    format console {
+      time_format rfc3339
+      time_local
+      duration_format string
+    }
+  }
 }
 
 :9091 {

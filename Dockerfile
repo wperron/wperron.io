@@ -3,6 +3,6 @@ WORKDIR /build
 COPY . .
 RUN hugo
 
-FROM caddy:2.4.6
+FROM caddy:2.7
 COPY --from=builder /build/public /usr/share/caddy
 COPY --from=builder /build/Caddyfile /etc/caddy/Caddyfile
