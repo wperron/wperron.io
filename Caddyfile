@@ -1,6 +1,23 @@
 http://localhost, http://wperron.io, http://wperron-io.fly.dev {
   bind 0.0.0.0
-  root * /usr/share/caddy
+  root * /usr/share/caddy/wperron.io
+  file_server
+  encode gzip
+  header orig-server Caddy
+
+  log {
+    output stdout
+    format console {
+      time_format rfc3339
+      time_local
+      duration_format string
+    }
+  }
+}
+
+http://localhost:8888, http://go.wperron.io {
+  bind 0.0.0.0
+  root * /usr/share/caddy/go.wperron.io
   file_server
   encode gzip
   header orig-server Caddy
