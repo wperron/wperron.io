@@ -3,6 +3,7 @@ http://localhost, http://wperron.io, http://wperron-io.fly.dev {
   root * /usr/share/caddy
   file_server
   encode gzip
+  header orig-server Caddy
 
   log {
     output stdout
