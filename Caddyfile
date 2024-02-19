@@ -2,6 +2,7 @@ http://localhost, http://wperron.io, http://wperron-io.fly.dev {
   bind 0.0.0.0
   root * /usr/share/caddy
   file_server
+  encode gzip
 
   log {
     output stdout
