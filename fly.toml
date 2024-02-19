@@ -11,6 +11,7 @@ port = 9091
 path = "/metrics"
 
 [env]
+TZ = "America/New_York"
 
 [experimental]
   allowed_public_ports = []
