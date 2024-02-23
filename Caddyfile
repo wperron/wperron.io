@@ -6,11 +6,14 @@ http://localhost, http://wperron.io, http://wperron-io.fly.dev {
   header orig-server Caddy
 
   log {
-    output stdout
-    format console {
+    output file /var/log/caddy.log {
+      roll_uncompressed
+      roll_keep_for 168h # 7d
+    }
+    format json {
       time_format rfc3339
       time_local
-      duration_format string
+      duration_format nano
     }
   }
 }
@@ -24,11 +27,14 @@ http://localhost:8888, http://go.wperron.io {
   header orig-server Caddy
 
   log {
-    output stdout
-    format console {
+    output file /var/log/caddy.log {
+      roll_uncompressed
+      roll_keep_for 168h # 7d
+    }
+    format json {
       time_format rfc3339
       time_local
-      duration_format string
+      duration_format nano
     }
   }
 }
